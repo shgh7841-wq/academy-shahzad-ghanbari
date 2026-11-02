@@ -1,0 +1,6 @@
+{
+  "name": "آکادمی هوش مصنوعی شهزاد قنبری | Shahzad Ghanbari AI Academy",
+  "description": "پلتفرم پیشرفته آموزش تخصصی هوش مصنوعی، یادگیری عمیق، مدل‌های زبانی و مهندسی پرامپت با تدریس شهزاد قنبری",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

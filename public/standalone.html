@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آکادمی هوش مصنوعی شهزاد قنبری | Shahzad Ghanbari AI Academy</title>
+  <meta name="description" content="مرکز تخصصی آموزش هوش مصنوعی مدرن، مدل‌های زبانی بزرگ (LLMs)، عامل‌های خودمختار و یادگیری عمیق با تدریس شهزاد قنبری">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#070913',
+              card: '#0d1122',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#06b6d4',
+              purple: '#a855f7',
+              violet: '#8b5cf6',
+            }
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Font: Vazirmatn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #070913;
+      color: #f1f5f9;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-nav {
+      background: rgba(7, 9, 19, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(13, 17, 34, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(6, 182, 212, 0.35);
+      box-shadow: 0 12px 35px -10px rgba(6, 182, 212, 0.22);
+      transform: translateY(-2px);
+    }
+
+    /* Futuristic Neon Glows */
+    .glow-cyan {
+      box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.35);
+    }
+    .glow-purple {
+      box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.35);
+    }
+    .glow-border-cyan:focus {
+      border-color: #06b6d4;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    /* Ambient Background Gradients */
+    .circuit-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="circuit-grid selection:bg-cyan-500 selection:text-black">
+
+  <!-- Ambient Light Orbs -->
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed top-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      
+      <!-- Zone 1: Brand Wordmark -->
+      <a href="#home" class="flex items-center gap-3 group whitespace-nowrap shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1px] glow-cyan">
+          <div class="w-full h-full bg-[#070913] rounded-[11px] flex items-center justify-center">
+            <i class="fa-solid fa-brain text-cyan-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold text-white tracking-tight">آکادمی شهزاد قنبری</span>
+          <span class="text-[11px] text-cyan-400 font-mono tracking-widest">SHAHZAD AI ACADEMY</span>
+        </div>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#home" class="nav-link text-white hover:text-cyan-400 transition-colors whitespace-nowrap">صفحه اصلی</a>
+        <a href="#courses" class="nav-link hover:text-cyan-400 transition-colors whitespace-nowrap">دوره‌ها</a>
+        <a href="#about" class="nav-link hover:text-cyan-400 transition-colors whitespace-nowrap">درباره ما</a>
+        <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors whitespace-nowrap">تماس با ما</a>
+      </nav>
+
+      <!-- Zone 3: Primary CTA Button -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button onclick="openConsultationModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs sm:text-sm font-semibold rounded-xl group bg-gradient-to-br from-cyan-500 via-indigo-500 to-purple-600 group-hover:from-cyan-500 group-hover:to-purple-600 text-white shadow-lg glow-cyan whitespace-nowrap">
+          <span class="relative px-4 py-2.5 transition-all ease-in duration-150 bg-[#070913] rounded-[10px] group-hover:bg-opacity-0 flex items-center gap-2">
+            <i class="fa-solid fa-headset text-cyan-400 group-hover:text-white transition-colors"></i>
+            <span>ثبت‌نام مشاوره‌ای</span>
+          </span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none" aria-label="منو">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden glass-nav border-t border-slate-800 px-6 py-4 space-y-3">
+      <a href="#home" onclick="closeMobileMenu()" class="block py-2 text-slate-200 hover:text-cyan-400 font-medium">صفحه اصلی</a>
+      <a href="#courses" onclick="closeMobileMenu()" class="block py-2 text-slate-200 hover:text-cyan-400 font-medium">دوره‌ها</a>
+      <a href="#about" onclick="closeMobileMenu()" class="block py-2 text-slate-200 hover:text-cyan-400 font-medium">درباره ما</a>
+      <a href="#contact" onclick="closeMobileMenu()" class="block py-2 text-slate-200 hover:text-cyan-400 font-medium">تماس با ما</a>
+      <button onclick="closeMobileMenu(); openConsultationModal();" class="w-full mt-2 py-2.5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg text-white font-medium text-sm">
+        ثبت‌نام مشاوره‌ای رایگان
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <section id="home" class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Content Column -->
+        <div class="lg:col-span-7 space-y-6 text-right">
+          
+          <!-- Editorial Lead-in -->
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 border border-cyan-500/30 bg-cyan-950/40 rounded-full px-4 py-1.5 glow-cyan-sm">
+            <i class="fa-solid fa-bolt"></i>
+            <span>دوره تخصصی هوش مصنوعی نسل جدید ۲۰۲۶</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight lg:leading-tight" style="text-wrap: balance;">
+            تسلط بر آینده فناوری با
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-300 to-purple-500">
+              آکادمی هوش مصنوعی شهزاد قنبری
+            </span>
+          </h1>
+
+          <!-- Value Proposition -->
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            از مبانی پایتون و ریاضیات یادگیری عمیق تا پیاده‌سازی مدل‌های زبانی بزرگ (LLMs) و عامل‌های هوشمند خودمختار. آموزش کاربردی، پروژه‌محور و بر لبه دانش جهانی هوش مصنوعی.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <a href="#courses" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold text-sm hover:opacity-95 transition-all shadow-lg glow-cyan flex items-center gap-2">
+              <span>مشاهده دوره‌های تخصصی</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+            <button onclick="openConsultationModal()" class="px-6 py-3.5 rounded-xl glass-card text-slate-200 font-semibold text-sm hover:border-cyan-400/50 hover:text-white transition-all flex items-center gap-2">
+              <i class="fa-solid fa-calendar-check text-purple-400"></i>
+              <span>رزرو جلسه مشاوره اختصاصی</span>
+            </button>
+          </div>
+
+          <!-- Academic Social Proof & KPIs -->
+          <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-6 text-right">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">۳,۴۰۰+</div>
+              <div class="text-xs text-slate-400 mt-1">دانش‌آموخته موفق</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-purple-400 font-mono">۹۴٪</div>
+              <div class="text-xs text-slate-400 mt-1">جذب در بازار کار بین‌المللی</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono">۴.۹/۵</div>
+              <div class="text-xs text-slate-400 mt-1">رضایت دانشجویان</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Anchor Column -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-2xl overflow-hidden glass-card p-2 border border-slate-700/60 shadow-2xl glow-cyan">
+            <img src="/images/hero_ai_academy_1793626749286.jpg" 
+                 alt="آزمایشگاه هوش مصنوعی شهزاد قنبری" 
+                 class="w-full h-80 sm:h-96 object-cover rounded-xl"
+                 onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'">
+            
+            <!-- Floating Holographic Badge -->
+            <div class="absolute bottom-6 right-6 left-6 p-4 rounded-xl glass-nav border border-cyan-500/30 backdrop-blur-md flex items-center justify-between">
+              <div>
+                <p class="text-xs text-cyan-300 font-medium">جدیدترین کارگاه پیش‌رو</p>
+                <h4 class="text-sm font-bold text-white mt-0.5">معماری ایجنت‌های هوشمند با LangGraph</h4>
+              </div>
+              <span class="text-xs px-2.5 py-1 bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/40 font-mono">ظرفیت محدود</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3. ACADEMY PILLARS ==================== -->
+  <section class="py-16 bg-[#090d1c] border-y border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">مزیت‌های یادگیری در آکادمی شهزاد قنبری</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">ترکیب استانداردهای صنعتی جهانی با منتورشیپ عمیق و پروژه‌های واقعی</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Pillar 1 -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-4">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">سرفصل‌های روز دنیا (Edge of AI)</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            مطالب آموزشی هر فصل مطابق با جدیدترین مقالات کنفرانس‌های NeurIPS و مدل‌های نوین OpenAI و Google DeepMind به‌روزرسانی می‌شوند.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-4">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">پروژه‌های عملیاتی سطح صنعتی</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            به‌جای مثال‌های انتزاعی، بر روی پایپ‌لاین‌های واقعی RAG سازمانی، فاین‌تیونینگ مدل‌های منبع‌باز و دیپلوی در سرورهای ابری تمرکز می‌کنید.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl mb-4">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">منتورشیپ مستقیم شهزاد قنبری</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            جلسات هفتگی حل مسئله، کدریویو اختصاصی و هدایت شغلی برای ورود مستقیم به پروژه‌ها و شرکت‌های بین‌المللی.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. COURSES SECTION ==================== -->
+  <section id="courses" class="py-20 lg:py-28 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-semibold text-purple-400 tracking-wider">نقشه راه جامع تخصص</span>
+          <h2 class="text-3xl font-extrabold text-white">دوره‌های پیشرفته آکادمی</h2>
+          <p class="text-slate-400 text-sm max-w-xl">مسیرهای یادگیری هدفمند برای متخصصان مهندسی داده، برنامه‌نویسان و پژوهشگران هوش مصنوعی</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="flex items-center gap-1.5 p-1 glass-card rounded-xl border border-slate-700/80 overflow-x-auto">
+          <button onclick="filterCourses('all')" class="course-filter-btn px-4 py-2 text-xs font-medium rounded-lg text-white bg-slate-800 transition-all whitespace-nowrap active-tab" data-category="all">
+            همه دوره‌ها
+          </button>
+          <button onclick="filterCourses('llm')" class="course-filter-btn px-4 py-2 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all whitespace-nowrap" data-category="llm">
+            مدل‌های زبانی & LLMs
+          </button>
+          <button onclick="filterCourses('agents')" class="course-filter-btn px-4 py-2 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all whitespace-nowrap" data-category="agents">
+            عامل‌های هوشمند (Agents)
+          </button>
+          <button onclick="filterCourses('deep')" class="course-filter-btn px-4 py-2 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all whitespace-nowrap" data-category="deep">
+            یادگیری عمیق
+          </button>
+        </div>
+      </div>
+
+      <!-- Course Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Course Card 1 -->
+        <div class="course-item glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col" data-category="llm">
+          <div class="relative h-48 overflow-hidden">
+            <img src="/images/course_llm_neural_1793626749313.jpg" alt="معماری پیشرفته مدل‌های زبانی" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-[#070913]/80 backdrop-blur-md px-3 py-1 rounded-md text-xs text-cyan-300 border border-cyan-500/30 font-medium">
+              سطح: پیشرفته
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#070913]/90 backdrop-blur-md px-2.5 py-1 rounded text-xs text-purple-300 font-mono">
+              ۴۸ ساعت آموزش
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-slate-400 mb-2">ترنسفورمرها · فاین‌تیونینگ LoRA · پایپ‌لاین‌های RAG</div>
+              <h3 class="text-lg font-bold text-white mb-2">مهندسی تخصصی مدل‌های زبانی بزرگ (LLM Engineering)</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                آموزش عمیق ساخت سامانه‌های پرسش‌وپاسخ متنی، ارزیابی مدل‌ها با Ragas، بهینه‌سازی سرعت استنتاج و ادغام پایگاه‌های داده برداری (Vector DBs).
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-slate-400 block">شهریه دوره</span>
+                <span class="text-base font-bold text-cyan-400 font-mono">۸,۹۰۰,۰۰۰ تومان</span>
+              </div>
+              <button onclick="openConsultationModal('مهندسی تخصصی مدل‌های زبانی بزرگ')" class="px-3.5 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500 hover:text-black font-semibold text-xs transition-colors">
+                مشاوره و ثبت‌نام
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Card 2 -->
+        <div class="course-item glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col" data-category="agents">
+          <div class="relative h-48 overflow-hidden">
+            <img src="/images/course_ai_agents_1793626750324.jpg" alt="طراحی عامل‌های هوشمند خودمختار" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-[#070913]/80 backdrop-blur-md px-3 py-1 rounded-md text-xs text-purple-300 border border-purple-500/30 font-medium">
+              سطح: متوسط تا پیشرفته
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#070913]/90 backdrop-blur-md px-2.5 py-1 rounded text-xs text-cyan-300 font-mono">
+              ۳۶ ساعت آموزش
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-slate-400 mb-2">LangGraph · CrewAI · تصمیم‌گیری چندعاملی</div>
+              <h3 class="text-lg font-bold text-white mb-2">طراحی و توسعه عامل‌های هوشمند (Autonomous AI Agents)</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                ساخت ایجنت‌های هوشمند خودکار که قادر به جستجو، استدلال چندمرحله‌ای، فراخوانی توابع (Function Calling) و حل مسائل پیچیده کسب‌وکار هستند.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-slate-400 block">شهریه دوره</span>
+                <span class="text-base font-bold text-purple-400 font-mono">۷,۵۰۰,۰۰۰ تومان</span>
+              </div>
+              <button onclick="openConsultationModal('طراحی و توسعه عامل‌های هوشمند')" class="px-3.5 py-2 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500 hover:text-white font-semibold text-xs transition-colors">
+                مشاوره و ثبت‌نام
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="course-item glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col" data-category="deep">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <div class="w-full h-full bg-gradient-to-tr from-slate-950 via-slate-900 to-indigo-950 flex items-center justify-center p-6 text-center">
+              <div>
+                <i class="fa-solid fa-network-wired text-4xl text-cyan-400 mb-2"></i>
+                <h4 class="text-white font-bold text-sm">مبانی عمیق PyTorch و معماری‌های نوین</h4>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 bg-[#070913]/80 backdrop-blur-md px-3 py-1 rounded-md text-xs text-emerald-300 border border-emerald-500/30 font-medium">
+              سطح: مقدماتی تا پیشرفته
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#070913]/90 backdrop-blur-md px-2.5 py-1 rounded text-xs text-slate-300 font-mono">
+              ۶۰ ساعت آموزش
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-slate-400 mb-2">ریاضیات یادگیری عمیق · PyTorch · شبکه‌های CNN و RNN</div>
+              <h3 class="text-lg font-bold text-white mb-2">یادگیری عمیق کاربردی و شبکه‌های عصبی (Deep Learning)</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                تسلط بر چارچوب PyTorch، بهینه‌سازهای پیشرفته، آموزش روی GPU و معماری‌های پایه‌ای برای ورود مقتدرانه به دنیای هوش مصنوعی.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-slate-400 block">شهریه دوره</span>
+                <span class="text-base font-bold text-white font-mono">۶,۸۰۰,۰۰۰ تومان</span>
+              </div>
+              <button onclick="openConsultationModal('یادگیری عمیق کاربردی')" class="px-3.5 py-2 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 hover:border-cyan-400 font-semibold text-xs transition-colors">
+                مشاوره و ثبت‌نام
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. ABOUT US & FOUNDER ==================== -->
+  <section id="about" class="py-20 bg-[#090d1c] border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Founder Portrait -->
+        <div class="lg:col-span-5 order-2 lg:order-1">
+          <div class="relative max-w-md mx-auto">
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 to-purple-600 opacity-30 blur-xl"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-slate-700 glass-card p-2">
+              <img src="/images/founder_shahzad_1793626749156.jpg" 
+                   alt="مهندس شهزاد قنبری - موسس آکادمی هوش مصنوعی" 
+                   class="w-full h-96 object-cover rounded-xl"
+                   onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'">
+              
+              <div class="p-4 text-center">
+                <h3 class="text-lg font-bold text-white">مهندس شهزاد قنبری</h3>
+                <p class="text-xs text-cyan-400 mt-1">پژوهشگر ارشد هوش مصنوعی و موسس آکادمی</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder Narrative & Vision -->
+        <div class="lg:col-span-7 order-1 lg:order-2 space-y-6 text-right">
+          <span class="text-xs font-semibold text-cyan-400 tracking-wider">درباره بنیان‌گذار و فلسفه آکادمی</span>
+          <h2 class="text-3xl font-extrabold text-white">آموزش تخصصی بدون حواشی؛ تمرکز محض بر خروجی واقعی</h2>
+          
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            آکادمی هوش مصنوعی و فناوری شهزاد قنبری با هدف از بین بردن شکاف میان دانش تئوری دانشگاهی و الزامات واقعی شرکت‌های پیشرو در عرصه هوش مصنوعی تاسیس شده است. در اینجا ما معتقدیم هوش مصنوعی تنها یک ابزار نرم‌افزاری نیست، بلکه زبان تحول آینده صنعت است.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">بیش از یک دهه تجربه در سیستم‌های هوشمند</h4>
+                <p class="text-xs text-slate-400 mt-0.5">هدایت و پیاده‌سازی بیش از ۴۰ پروژه هوش مصنوعی سازمانی و مقالات بین‌المللی.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0 mt-0.5">
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">جامعه پویا و شبکه‌سازی متخصصان</h4>
+                <p class="text-xs text-slate-400 mt-0.5">عضویت دائم دانشجویان در کامیونیتی خصوصی تلگرام و دیسکورد جهت اشتراک فرصت‌های شغلی و پژوهشی.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0 mt-0.5">
+                <i class="fa-solid fa-check text-xs"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">گواهی‌نامه رسمی قابل ترجمه</h4>
+                <p class="text-xs text-slate-400 mt-0.5">ارائه مدرک معتبر با امکان اعتبارسنجی آنلاین و ارجاع مستقیم به شرکت‌های پارتنر.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-4">
+            <button onclick="openConsultationModal()" class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold text-xs glow-cyan">
+              درخواست مشاوره مسیر شغلی
+            </button>
+            <a href="#contact" class="px-5 py-3 rounded-xl glass-card text-slate-300 font-semibold text-xs hover:text-white">
+              ارتباط با دفتر مرکزی
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. CONTACT SECTION ==================== -->
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-semibold text-cyan-400 tracking-wider">ارتباط مستقیم با آکادمی</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">مشاوره، پشتیبانی و ثبت‌نام</h2>
+        <p class="text-slate-400 text-sm mt-2">تیم کارشناسان آموزشی ما آماده پاسخ‌گویی به سوالات شما درباره پیش‌نیازها و مسیر دوره‌ها هستند.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Contact Info Cards -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-lg shrink-0">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">تماس تلفنی مستقیم</span>
+              <p class="text-sm font-bold text-white font-mono dir-ltr text-right mt-0.5">۰۲۱ - ۸۸۲۲ ۳۳۴۴</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-lg shrink-0">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">پست الکترونیک رسمی</span>
+              <p class="text-sm font-bold text-white font-mono mt-0.5">info@shahzadacademy.ai</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-lg shrink-0">
+              <i class="fa-brands fa-telegram"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">کانال تلگرام و پشتیبانی آنلاین</span>
+              <p class="text-sm font-bold text-white font-mono mt-0.5">@ShahzadGhanbariAI</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-lg shrink-0">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">موقعیت دفتر آکادمی</span>
+              <p class="text-sm font-bold text-white mt-0.5">تهران، خیابان ولیعصر، تقاطع فاطمی، برج فناوری</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-card p-8 rounded-2xl border border-slate-700/80 shadow-xl">
+            <h3 class="text-xl font-bold text-white mb-2">ارسال پیام یا سوال آموزشی</h3>
+            <p class="text-xs text-slate-400 mb-6">پیام خود را ثبت کنید؛ حداکثر ظرف ۲ ساعت کاری با شما تماس می‌گیریم.</p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1.5 font-medium">نام و نام خانوادگی *</label>
+                  <input type="text" required placeholder="مثال: علی رضایی" class="w-full bg-[#070913]/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none glow-border-cyan placeholder-slate-500">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1.5 font-medium">شماره موبایل (جهت تماس) *</label>
+                  <input type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" class="w-full bg-[#070913]/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none glow-border-cyan placeholder-slate-500 font-mono">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1.5 font-medium">موضوع پیام</label>
+                <select class="w-full bg-[#070913]/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none glow-border-cyan">
+                  <option value="courses">سوال درباره دوره‌ها و سرفصل‌ها</option>
+                  <option value="consult">مشاوره اختصاصی مسیر شغلی هوش مصنوعی</option>
+                  <option value="corporate">آموزش سازمانی و شرکتی</option>
+                  <option value="other">سایر موضوعات</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1.5 font-medium">متن پیام *</label>
+                <textarea required rows="4" placeholder="متن سوال یا زمینه مورد نظر خود را بنویسید..." class="w-full bg-[#070913]/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none glow-border-cyan placeholder-slate-500"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 text-white font-semibold text-sm hover:opacity-95 transition-all shadow-lg glow-cyan flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>ارسال پیام به مشاوران</span>
+              </button>
+            </form>
+
+            <div id="contactSuccessMsg" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs text-center flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-check text-base"></i>
+              <span>پیام شما با موفقیت ثبت شد. مشاوران ما به زودی با شما تماس خواهند گرفت.</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. FOOTER ==================== -->
+  <footer class="bg-[#05070e] border-t border-slate-800 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        
+        <!-- Col 1: Brand & Mission (Span 2) -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1px] glow-cyan">
+              <div class="w-full h-full bg-[#070913] rounded-[11px] flex items-center justify-center">
+                <i class="fa-solid fa-brain text-cyan-400"></i>
+              </div>
+            </div>
+            <span class="text-lg font-bold text-white">آکادمی شهزاد قنبری</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            نخستین مرکز فوق تخصصی پرورش مهندسان هوش مصنوعی نسل جدید در ایران. پیشرو در آموزش عمیق مدل‌های زبان بزرگ، عامل‌های خودمختار و یادگیری تقویتی.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://t.me" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">دسترسی سریع</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="hover:text-cyan-400 transition-colors">صفحه اصلی</a></li>
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">دوره‌های تخصصی</a></li>
+            <li><a href="#about" class="hover:text-cyan-400 transition-colors">درباره استاد شهزاد قنبری</a></li>
+            <li><a href="#contact" class="hover:text-cyan-400 transition-colors">تماس با ما</a></li>
+            <li><a href="javascript:void(0)" onclick="openConsultationModal()" class="hover:text-cyan-400 transition-colors">رزرو مشاوره رایگان</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Academic Categories -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">شاخه‌های آموزشی</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">معماری Large Language Models</a></li>
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">عامل‌های هوشمند (AI Agents)</a></li>
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">یادگیری عمیق با PyTorch</a></li>
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">مهندسی پایپ‌لاین‌های RAG</a></li>
+            <li><a href="#courses" class="hover:text-cyan-400 transition-colors">هوش مصنوعی مولد سازمانی</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">خبرنامه هوش مصنوعی</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            جدیدترین مقالات و تحلیل‌های هوش مصنوعی را هر هفته در ایمیل خود دریافت کنید.
+          </p>
+          <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+            <input type="email" required placeholder="ایمیل شما..." class="w-full bg-[#070913] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none glow-border-cyan placeholder-slate-500 font-mono">
+            <button type="submit" class="w-full py-2 bg-slate-800 hover:bg-cyan-500 hover:text-black transition-colors rounded-lg text-xs font-medium text-slate-200">
+              عضویت در خبرنامه
+            </button>
+          </form>
+          <div id="newsletterSuccess" class="hidden text-[11px] text-cyan-400">با تشکر! عضویت شما ثبت شد.</div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          تمامی حقوق مادی و معنوی متعلق به آکادمی هوش مصنوعی شهزاد قنبری می‌باشد © ۲۰۲۶
+        </div>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>قوانین و مقررات</span>
+          <span>·</span>
+          <span>حفظ حریم خصوصی</span>
+          <span>·</span>
+          <span>Shahzad Ghanbari AI Academy</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== 8. CONSULTATION MODAL ==================== -->
+  <div id="consultModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="relative w-full max-w-lg glass-card border border-cyan-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl glow-cyan animate-fadeIn text-right">
+      
+      <!-- Close button -->
+      <button onclick="closeConsultationModal()" class="absolute top-5 left-5 text-slate-400 hover:text-white transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-1.5 text-xs text-cyan-400 font-medium mb-1">
+          <i class="fa-solid fa-headset"></i>
+          <span>فرم ثبت‌نام و مشاوره رایگان</span>
+        </div>
+        <h3 class="text-xl font-bold text-white">مشاوره اختصاصی با کارشناسان آکادمی</h3>
+        <p class="text-xs text-slate-400 mt-1">مشخصات خود را وارد کنید تا کارشناسان ما ظرف ۲۴ ساعت برای تعیین نقشه راه اختصاصی با شما تماس بگیرند.</p>
+      </div>
+
+      <form id="consultForm" onsubmit="handleConsultSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">نام و نام خانوادگی *</label>
+          <input type="text" required id="consultName" placeholder="مثال: سارا محمدی" class="w-full bg-[#070913] border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none glow-border-cyan">
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">شماره تماس (همراه) *</label>
+          <input type="tel" required id="consultPhone" placeholder="۰۹۱۲..." class="w-full bg-[#070913] border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none glow-border-cyan font-mono">
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">دوره یا زمینه مورد نظر</label>
+          <select id="consultCourse" class="w-full bg-[#070913] border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none glow-border-cyan">
+            <option value="LLM Engineering">مهندسی تخصصی مدل‌های زبانی (LLMs)</option>
+            <option value="Autonomous AI Agents">طراحی و توسعه عامل‌های هوشمند (Agents)</option>
+            <option value="Deep Learning & PyTorch">یادگیری عمیق کاربردی (Deep Learning)</option>
+            <option value="General AI Roadmap">مشاوره کلی برای انتخاب نقشه راه</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">سطح آشنایی فعلی با هوش مصنوعی</label>
+          <div class="grid grid-cols-3 gap-2 text-xs">
+            <label class="flex items-center gap-1.5 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
+              <input type="radio" name="level" value="beginner" checked class="text-cyan-500">
+              <span class="text-slate-300">مبتدی</span>
+            </label>
+            <label class="flex items-center gap-1.5 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
+              <input type="radio" name="level" value="intermediate" class="text-cyan-500">
+              <span class="text-slate-300">متوسط</span>
+            </label>
+            <label class="flex items-center gap-1.5 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
+              <input type="radio" name="level" value="advanced" class="text-cyan-500">
+              <span class="text-slate-300">پیشرفته</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 text-white font-bold text-sm hover:opacity-95 transition-all shadow-lg glow-cyan mt-2">
+          ثبت درخواست مشاوره
+        </button>
+      </form>
+
+      <!-- Confirmation state -->
+      <div id="consultSuccessState" class="hidden text-center py-6 space-y-3">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-3xl mx-auto">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white">درخواست مشاوره با موفقیت ثبت شد</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          کارشناس ارشد آکادمی شهزاد قنبری جهت هماهنگی جلسه ارزیابی و مشاوره تا پایان وقت اداری با شما تماس خواهد گرفت.
+        </p>
+        <button onclick="closeConsultationModal()" class="px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium rounded-lg">
+          متوجه شدم
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 9. JAVASCRIPT ==================== -->
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.add('hidden');
+    }
+
+    // Consultation modal handlers
+    function openConsultationModal(courseName = '') {
+      const modal = document.getElementById('consultModal');
+      const form = document.getElementById('consultForm');
+      const success = document.getElementById('consultSuccessState');
+      const courseSelect = document.getElementById('consultCourse');
+
+      if (form) form.classList.remove('hidden');
+      if (success) success.classList.add('hidden');
+      if (modal) modal.classList.remove('hidden');
+
+      if (courseName && courseSelect) {
+        for (let i = 0; i < courseSelect.options.length; i++) {
+          if (courseSelect.options[i].text.includes(courseName) || courseSelect.options[i].value.includes(courseName)) {
+            courseSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    function closeConsultationModal() {
+      const modal = document.getElementById('consultModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Close modal on click outside
+    window.addEventListener('click', function(e) {
+      const modal = document.getElementById('consultModal');
+      if (e.target === modal) {
+        closeConsultationModal();
+      }
+    });
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeConsultationModal();
+      }
+    });
+
+    // Handle consultation form submission
+    function handleConsultSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('consultForm');
+      const success = document.getElementById('consultSuccessState');
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    }
+
+    // Handle contact form submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('contactSuccessMsg');
+      msg.classList.remove('hidden');
+      e.target.reset();
+    }
+
+    // Handle newsletter
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('newsletterSuccess');
+      msg.classList.remove('hidden');
+      e.target.reset();
+    }
+
+    // Course category filtering
+    function filterCourses(category) {
+      const buttons = document.querySelectorAll('.course-filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.classList.add('bg-slate-800', 'text-white');
+          btn.classList.remove('text-slate-400');
+        } else {
+          btn.classList.remove('bg-slate-800', 'text-white');
+          btn.classList.add('text-slate-400');
+        }
+      });
+
+      const cards = document.querySelectorAll('.course-item');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
